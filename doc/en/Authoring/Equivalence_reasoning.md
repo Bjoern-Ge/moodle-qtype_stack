@@ -53,6 +53,12 @@ Under the `Input:ans1` header specify _Equivalence reasoning_ from the Input typ
 We want students to work through the expansion one line at a time, so let's include a hint. Copy the following into the Syntax hint box, within the `Input:ans1` header::
 
     [(x+2)^3,stackeq(?)]
+    
+Is it possible to access the random Variables of the question in the hint box? I like to write the first (corect) line in advance.
+
+If you like to use the maxima variables in her, you can write:
+
+    [(a+2)^3] ???
 
 This is a list, and uses `stackeq`.
 
