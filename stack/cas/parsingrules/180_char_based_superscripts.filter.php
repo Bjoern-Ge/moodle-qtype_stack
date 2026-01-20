@@ -38,7 +38,9 @@ class stack_ast_filter_180_char_based_superscripts implements stack_cas_astfilte
     // phpcs:ignore moodle.Commenting.MissingDocblock.Function
     public function filter(MP_Node $ast, array &$errors, array &$answernotes, stack_cas_security $identifierrules): MP_Node {
         if (self::$ssmap === null) {
-            self::$ssmap = json_decode(file_get_contents(__DIR__ . '/../../maximaparser/unicode/superscript-stack.json'), true);
+            // Option C: Allow only the most common superscripts: ², ³, ¹
+            // These are 2-byte UTF-8 characters and work without UTF-8mb4 requirement.
+            self::$ssmap = ['²' => '2', '³' => '3', '¹' => '1'];
         }
 
         $process = function($node) use (&$errors, &$answernotes) {
